@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/Projects.dart';
+import 'package:portfolio/Social.dart';
 
 class Homepage extends StatelessWidget {
-  var Radius;
   @override
   Widget build(BuildContext context) {
     // if (Platform.isAndroid) {
@@ -22,27 +23,106 @@ class Homepage extends StatelessWidget {
         },
         body: Scaffold(
           body: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Center(
-                    child: Card(
-                      shape: StadiumBorder(),
-                      elevation: 100,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey[300],
-                        radius: 130,
-                        child: Image.asset(
-                          'images/sree.png',
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    space(),
+                    space(),
+                    Center(
+                      child: Card(
+                        shape: StadiumBorder(),
+                        elevation: 100,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          radius: 130,
+                          child: Image.asset(
+                            'images/sree.png',
+                          ),
+                          // shape: BoxShape.circle
                         ),
-                        // shape: BoxShape.circle
                       ),
                     ),
-                  ),
-                ],
+                    space(),
+                    Center(
+                      child: Text(
+                        "Kummara Sreenivasulu",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 40,
+                        ),
+                      ),
+                    ),
+                    space(),
+                    space(),
+                    Text(
+                      "About",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                      ),
+                    ),
+                    space(),
+                    Container(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Social(),
+                            space(),
+                            Social(),
+                            space(),
+                            Social(),
+                            space(),
+                            Social(),
+                            space(),
+                            Social(),
+                            space(),
+                            Social(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    space(),
+                    Text(
+                      "Projects",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                      ),
+                    ),
+                    space(),
+                    Container(
+                      color: Colors.grey,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -50,4 +130,16 @@ class Homepage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget space() {
+  return SizedBox(
+    height: 30,
+  );
+}
+
+Widget space2() {
+  return SizedBox(
+    height: 10,
+  );
 }
