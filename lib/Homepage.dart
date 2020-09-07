@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Projects.dart';
@@ -8,9 +6,6 @@ import 'package:portfolio/Social.dart';
 class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // if (Platform.isAndroid) {
-    //   Radius = MediaQuery.of(context).size.width / 7;
-    // } else {}
     return CupertinoPageScaffold(
       child: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -21,8 +16,9 @@ class Homepage extends StatelessWidget {
             )
           ];
         },
-        body: Scaffold(
-          body: SingleChildScrollView(
+        body: Material(
+          type: MaterialType.transparency,
+          child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
