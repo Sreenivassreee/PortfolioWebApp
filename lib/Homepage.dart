@@ -1,10 +1,21 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/Data/projectsData.dart';
 import 'package:portfolio/Projects.dart';
 import 'package:portfolio/Social.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  void initState() {
+    print(Data().getProjectsData()[0].projectName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
