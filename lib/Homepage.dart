@@ -76,7 +76,6 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     space(),
-                    space(),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
@@ -88,7 +87,6 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                     ),
-                    space(),
                     Container(
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
@@ -136,11 +134,12 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     space(),
-                    Container(
-                      color: Colors.grey,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                    Center(
+                      child: Container(
+                        width: 400,
+                        color: Colors.grey,
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Projects(),
                             space2(),

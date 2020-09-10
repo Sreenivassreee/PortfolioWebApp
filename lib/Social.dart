@@ -22,8 +22,8 @@ class Social extends StatelessWidget {
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
-        height: 70,
-        width: 70,
+        height: 60,
+        width: 60,
       ),
     );
   }
