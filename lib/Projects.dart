@@ -13,6 +13,8 @@ class Projects extends StatelessWidget {
           // width: MediaQuery.of(context).size.width - 30,
           child: Center(
             child: Card(
+              color: Colors.white,
+              elevation: 1,
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

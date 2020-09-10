@@ -29,6 +29,7 @@ class _HomepageState extends State<Homepage> {
           ];
         },
         body: Material(
+          color: Colors.indigo[50],
           type: MaterialType.transparency,
           child: SingleChildScrollView(
             child: Padding(
@@ -137,24 +138,24 @@ class _HomepageState extends State<Homepage> {
                     Center(
                       child: Container(
                         width: 400,
-                        color: Colors.grey,
+                        // color: Colors.grey,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Projects(),
                             space2(),
-                            Projects(),
-                            space2(),
-                            Projects(),
-                            space2(),
-                            Projects(),
-                            space2(),
-                            Projects(),
-                            space2(),
-                            Projects(),
-                            space2(),
-                            Projects(),
-                            space2(),
+                            // Projects(),
+                            // space2(),
+                            // Projects(),
+                            // space2(),
+                            // Projects(),
+                            // space2(),
+                            // Projects(),
+                            // space2(),
+                            // Projects(),
+                            // space2(),
+                            // Projects(),
+                            // space2(),
                           ],
                         ),
                       ),
