@@ -35,7 +35,74 @@ class Projects extends StatelessWidget {
                   Flexible(
                     flex: 3,
                     child: Container(
-                      color: Colors.yellow,
+                      width: double.infinity,
+                      // color: Colors.yellow,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 15, left: 8, right: 8, bottom: 12),
+                            child: Text(
+                              "MathCrush",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              alignment: Alignment.bottomLeft,
+                              // color: Colors.amber,
+                              height: 90,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Platform : Android",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    // textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    "Languages : Dart ( Flutter )",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    // textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    "Tools : Vs Code , X code",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    // textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    "DataBase : FireBase",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    // textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15.0),
+                            child: Container(
+                              alignment: Alignment.bottomRight,
+                              child: Icon(Icons.open_in_new_rounded),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   space2(),

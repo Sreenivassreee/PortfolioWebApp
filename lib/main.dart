@@ -9,6 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Portfolio",
+      theme: ThemeData(
+        fontFamily: 'arial',
+      ),
       home: Homepage(),
       debugShowCheckedModeBanner: false,
     );

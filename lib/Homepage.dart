@@ -23,13 +23,16 @@ class _HomepageState extends State<Homepage> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             CupertinoSliverNavigationBar(
-              largeTitle: Text('K Sreenivasulu'),
+              largeTitle: Text(
+                'K Sreenivasulu',
+                style: TextStyle(fontFamily: "arial"),
+              ),
               trailing: Icon(CupertinoIcons.brightness),
             )
           ];
         },
         body: Material(
-          color: Colors.indigo[50],
+          color: Colors.indigo[200],
           type: MaterialType.transparency,
           child: SingleChildScrollView(
             child: Padding(
@@ -144,18 +147,18 @@ class _HomepageState extends State<Homepage> {
                           children: [
                             Projects(),
                             space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
+                            Projects(),
+                            space2(),
                           ],
                         ),
                       ),
@@ -179,6 +182,6 @@ Widget space() {
 
 Widget space2() {
   return SizedBox(
-    height: 5,
+    height: 15,
   );
 }
