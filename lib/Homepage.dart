@@ -12,9 +12,9 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   @override
-  // void initState() {
-  //   print(Data().getProjectsData()[0].projectName);
-  // }
+  void initState() {
+    print(Data().getProjectsData()[0].projectName);
+  }
 
   @override
   Widget build(BuildContext context) {
