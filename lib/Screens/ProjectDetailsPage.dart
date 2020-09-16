@@ -223,17 +223,17 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("Android Studio, Vs Code"),
+                                  child: Text("FireBase"),
                                 ),
                               ]),
                               TableRow(children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("Tools "),
+                                  child: Text("  "),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("FireBase"),
+                                  child: Text(" "),
                                 ),
                               ]),
                             ]),
@@ -312,13 +312,16 @@ Screen(String data, height, width, context) {
                   builder: (context) => ScreenShotDetail(data: data)),
             );
           },
-          child: CachedNetworkImage(
-            imageUrl: data,
-            progressIndicatorBuilder: (context, url, downloadProgress) =>
-                CupertinoActivityIndicator(
-                    // value: downloadProgress.progress,
-                    ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+          child: Hero(
+            tag: "a",
+            child: CachedNetworkImage(
+              imageUrl: data,
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CupertinoActivityIndicator(
+                      // value: downloadProgress.progress,
+                      ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
           ),
         ),
       ),

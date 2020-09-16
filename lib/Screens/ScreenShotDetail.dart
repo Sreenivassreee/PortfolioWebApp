@@ -8,22 +8,30 @@ class ScreenShotDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(data);
-    return CupertinoPageScaffold(
-      child: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
-            CupertinoSliverNavigationBar(
-              largeTitle: Text(
-                'Preview',
-                style: TextStyle(fontFamily: "arial"),
-              ),
-            )
-          ];
-        },
-        body: Material(
-          child: Container(
-            height: 400,
-            width: 200,
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        title: Text(
+          "Preview",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+      body: Center(
+        child: Container(
+          // color: Colors.red,
+          height: MediaQuery.of(context).size.height - 10,
+          width: 350,
+          child: Hero(
+            tag: "a",
             child: CachedNetworkImage(
               imageUrl: data ?? " ",
               progressIndicatorBuilder: (context, url, downloadProgress) =>
