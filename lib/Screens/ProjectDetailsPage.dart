@@ -2,11 +2,25 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Homepage.dart';
+import 'package:portfolio/Screens/ScreenShotDetail.dart';
 
 class ProjectDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
+    final height = MediaQuery.of(context).size.height / 2;
+    final width = MediaQuery.of(context).size.width / 4.5;
+
+    List data = [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C2.png?alt=media&token=77772374-718a-4b2f-bd27-d82c9e3b2bda',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    ];
     return CupertinoPageScaffold(
       child: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -24,6 +38,7 @@ class ProjectDetailsPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 40.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                       alignment: Alignment.topCenter,
@@ -101,25 +116,53 @@ class ProjectDetailsPage extends StatelessWidget {
                       // color: Colors.red,
                       ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width - 20,
-                    height: 300,
-                    color: Colors.green,
-                    child: GridView.builder(
-                      itemCount: 8,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 5),
-                      // (orientation == Orientation.portrait) ? 2 : 3),
-                      itemBuilder: (BuildContext context, int index) {
-                        return new Card(
-                          child: new GridTile(
-                            footer: new Text('name'),
-                            child: Image.network("src") //just for testing, will fill with image later
-                          ),
-                        );
-                      },
+                    // width: MediaQuery.of(context).size.width - 20,
+                    // height: 350,
+                    // color: Colors.green,
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                // crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                  Screen(data[0], 200 + (height * 0.4), width,
+                                      context),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   Container(
@@ -194,14 +237,15 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                               ]),
                             ]),
+                        spa(),
+                        spa(),
+                        spa(),
+                        spa(),
+
                         // Text(
                         //   "Platform : Android , IOS",
                         //   // style: TextStyle(fontSize: 20),
                         // ),
-                        spa(),
-                        spa(),
-                        spa(),
-                        spa(),
 
                         // Text(
                         //   "Tools : Android Studio, Vs Code",
@@ -249,5 +293,35 @@ class ProjectDetailsPage extends StatelessWidget {
 spa() {
   return SizedBox(
     height: 20,
+  );
+}
+
+Screen(String data, height, width, context) {
+  return Center(
+    child: Padding(
+      padding: const EdgeInsets.all(1.0),
+      child: Container(
+        height: height,
+        width: width,
+        child: GestureDetector(
+          onTap: () {
+            // print(data);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ScreenShotDetail(data: data)),
+            );
+          },
+          child: CachedNetworkImage(
+            imageUrl: data,
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CupertinoActivityIndicator(
+                    // value: downloadProgress.progress,
+                    ),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
+        ),
+      ),
+    ),
   );
 }
