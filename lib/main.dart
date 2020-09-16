@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'arial',
       ),
-      home: Homepage(),
+      home: ProjectDetailsPage(),
       debugShowCheckedModeBanner: false,
     );
   }
