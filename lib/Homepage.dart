@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Data/projectsData.dart';
+import 'package:portfolio/HomePageWidgets.dart/Projects.dart';
+import 'package:portfolio/HomePageWidgets.dart/Skills.dart';
 import 'package:portfolio/Projects.dart';
 import 'package:portfolio/Social.dart';
 
@@ -126,43 +128,8 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     space(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Projects",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
-                        ),
-                      ),
-                    ),
-                    space(),
-                    Center(
-                      child: Container(
-                        width: 400,
-                        // color: Colors.grey,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Projects(),
-                            space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                            // Projects(),
-                            // space2(),
-                          ],
-                        ),
-                      ),
-                    ),
+                    Skills(),
+                    HomeProjects()
                   ],
                 ),
               ),

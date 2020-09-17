@@ -30,17 +30,17 @@ class ScreenShotDetail extends StatelessWidget {
           // color: Colors.red,
           height: MediaQuery.of(context).size.height - 10,
           width: 350,
-          child: Hero(
-            tag: "a",
-            child: CachedNetworkImage(
-              imageUrl: data ?? " ",
-              progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  CupertinoActivityIndicator(
-                      // value: downloadProgress.progress,
-                      ),
-              errorWidget: (context, url, error) => Icon(Icons.error),
-            ),
+          // child: Hero(
+          // tag: "a",
+          child: CachedNetworkImage(
+            imageUrl: data ?? " ",
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CupertinoActivityIndicator(
+                    // value: downloadProgress.progress,
+                    ),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
+          // ),
         ),
       ),
     );
