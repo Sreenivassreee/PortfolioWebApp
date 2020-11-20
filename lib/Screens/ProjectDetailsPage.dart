@@ -3,24 +3,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Homepage.dart';
 import 'package:portfolio/Screens/ScreenShotDetail.dart';
+import 'package:portfolio/models/project_info.dart';
 
 class ProjectDetailsPage extends StatelessWidget {
+  ProjectInfo detailOneData;
+  ProjectDetailsPage({this.detailOneData});
   @override
   Widget build(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
     final height = MediaQuery.of(context).size.height / 2;
     final width = MediaQuery.of(context).size.width / 4.5;
 
-    List data = [
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C2.png?alt=media&token=77772374-718a-4b2f-bd27-d82c9e3b2bda',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-      'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
-    ];
+    // print(detailOneData.icon);
+    // List data = [
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C2.png?alt=media&token=77772374-718a-4b2f-bd27-d82c9e3b2bda',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    //   'https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/ScreenShots%2FMathCrush%2FFrentpage%2Fmaths%20solutions%20for%20any%20question%2C%20maths%20games%2C%20math%20solution%20app%2C%20math%20games%2C%20math%20app%2C%20math%20answer%20app%2C%20a%20math%20solution%20app%2C%20a%20maths%20solving%20app%2C%20math%20book%2010th%20class%20ncert%2C%20math%20editor%2C%20math%20hindi%2C%20mathcrush%2Cstevebrains%2C1.png?alt=media&token=7385e481-ea12-459b-937c-a6f7ce275a87',
+    // ];
     return CupertinoPageScaffold(
       child: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -54,10 +58,11 @@ class ProjectDetailsPage extends StatelessWidget {
                                 height: 200,
                                 width: MediaQuery.of(context).size.width,
                                 child: Hero(
-                                  tag: "imageHero",
+                                  tag: detailOneData.icon,
                                   child: Image.network(
-                                    // imageUrl:
-                                    "https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/projects%2FMathCrush.png?alt=media&token=63725895-9690-425b-9d15-ea4abada5392",
+                                    detailOneData.icon ??
+                                        // imageUrl:
+                                        "https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/projects%2FMathCrush.png?alt=media&token=63725895-9690-425b-9d15-ea4abada5392",
                                   ),
                                 ),
                               ),
@@ -74,28 +79,30 @@ class ProjectDetailsPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "MathCrush",
+                                    detailOneData.projectName,
                                     style: TextStyle(fontSize: 40),
                                   ),
                                   SizedBox(
                                     height: 2,
                                   ),
-                                  Text(
-                                    "Published",
-                                    // style: TextStyle(fontSize: 20),
-                                  ),
+                                  Text(detailOneData.published
+                                          ? "Published"
+                                          : "Not Published"
+                                      // "${detailOneData.published}",
+                                      // style: TextStyle(fontSize: 20),
+                                      ),
                                   SizedBox(
                                     height: 10,
                                   ),
                                   Text(
-                                    "Users : 1000 +",
+                                    "Users : ${detailOneData.noOfUsers}",
                                     style: TextStyle(fontSize: 20),
                                   ),
                                   SizedBox(
                                     height: 10,
                                   ),
                                   Text(
-                                    "Average Rating : 5.0",
+                                    "Average Rating : ${detailOneData.averageRating}",
                                     style: TextStyle(fontSize: 20),
                                   ),
                                   SizedBox(
@@ -136,22 +143,28 @@ class ProjectDetailsPage extends StatelessWidget {
                                 // crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
-                                  Screen(data[0], 200 + (height * 0.4), width,
-                                      context),
+                                  Screen(detailOneData.screenUrl1,
+                                      200 + (height * 0.4), width, context),
+                                  Screen(detailOneData.screenUrl2,
+                                      200 + (height * 0.4), width, context),
+                                  Screen(detailOneData.screenUrl3,
+                                      200 + (height * 0.4), width, context),
+                                  Screen(detailOneData.screenUrl4,
+                                      200 + (height * 0.4), width, context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
+                                  // Screen(data[0], 200 + (height * 0.4), width,
+                                  //     context),
                                 ],
                               ),
                             ),
@@ -183,7 +196,7 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("Android , IOS"),
+                                  child: Text(detailOneData.platform),
                                 ),
                               ]),
                               TableRow(children: [
@@ -193,7 +206,7 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("Android Studio, Vs Code"),
+                                  child: Text(detailOneData.tools),
                                 ),
                               ]),
                               TableRow(children: [
@@ -203,7 +216,7 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("Dart with Flutter"),
+                                  child: Text(detailOneData.languages),
                                 ),
                               ]),
                               TableRow(children: [
@@ -213,7 +226,7 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("FireBase"),
+                                  child: Text(detailOneData.dataBase),
                                 ),
                               ]),
                               TableRow(children: [
@@ -223,19 +236,19 @@ class ProjectDetailsPage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text("FireBase"),
+                                  child: Text(detailOneData.userAuth),
                                 ),
                               ]),
-                              TableRow(children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text("  "),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(" "),
-                                ),
-                              ]),
+                              // TableRow(children: [
+                              //   Padding(
+                              //     padding: const EdgeInsets.all(8.0),
+                              //     child: Text("  "),
+                              //   ),
+                              //   Padding(
+                              //     padding: const EdgeInsets.all(8.0),
+                              //     child: Text(" "),
+                              //   ),
+                              // ]),
                             ]),
                         spa(),
                         spa(),

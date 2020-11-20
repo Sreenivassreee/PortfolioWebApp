@@ -2,10 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Homepage.dart';
 import 'package:portfolio/Screens/ProjectDetailsPage.dart';
+import 'package:portfolio/models/project_info.dart';
 
 class Projects extends StatelessWidget {
+  ProjectInfo oneData;
+  Projects({this.oneData});
   @override
   Widget build(BuildContext context) {
+    print("aaaaaqaaaaaaghfaghsdfagsdfasghdfasdgafsdghasdf  ${oneData.icon}");
     return Center(
       child: Container(
           // color: Colors.red,
@@ -18,7 +22,8 @@ class Projects extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ProjectDetailsPage(),
+                    builder: (context) =>
+                        ProjectDetailsPage(detailOneData: oneData),
                   ),
                 );
               },
@@ -35,11 +40,11 @@ class Projects extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: Hero(
-                              tag: "imageHero",
-                              child: Image.network(
-                                // imageUrl:
-                                "https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/projects%2FMathCrush.png?alt=media&token=63725895-9690-425b-9d15-ea4abada5392",
-                              ),
+                              tag: oneData.icon,
+                              child: Image.network(oneData.icon
+                                  // imageUrl:
+                                  // "https://firebasestorage.googleapis.com/v0/b/portfolio-web-33015.appspot.com/o/projects%2FMathCrush.png?alt=media&token=63725895-9690-425b-9d15-ea4abada5392",
+                                  ),
                             ),
                           ),
                         ),
@@ -56,7 +61,7 @@ class Projects extends StatelessWidget {
                               padding: EdgeInsets.only(
                                   top: 15, left: 8, right: 8, bottom: 12),
                               child: Text(
-                                "MathCrush",
+                                oneData.projectName,
                                 style: TextStyle(
                                   color: Colors.red,
                                   fontSize: 25,
@@ -76,28 +81,28 @@ class Projects extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Platform : Android",
+                                      "Platform : ${oneData.platform}",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                       // textAlign: TextAlign.left,
                                     ),
                                     Text(
-                                      "Languages : Dart ( Flutter )",
+                                      "Languages : ${oneData.languages}",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                       // textAlign: TextAlign.left,
                                     ),
                                     Text(
-                                      "Tools : Vs Code , X code",
+                                      "Tools : ${oneData.tools}",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                       // textAlign: TextAlign.left,
                                     ),
                                     Text(
-                                      "DataBase : FireBase",
+                                      "DataBase : ${oneData.platform}",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),

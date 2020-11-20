@@ -1,8 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Homepage.dart';
 import 'package:portfolio/Projects.dart';
+import 'package:portfolio/models/project_info.dart';
+import '../Data/projectsData.dart';
 
-class HomeProjects extends StatelessWidget {
+class HomeProjects extends StatefulWidget {
+  @override
+  _HomeProjectsState createState() => _HomeProjectsState();
+}
+
+class _HomeProjectsState extends State<HomeProjects> {
+  List<ProjectInfo> allProjectslistData = [];
+  @override
+  void initState() {
+    allProjectslistData = RowData.getProjectsData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,28 +39,42 @@ class HomeProjects extends StatelessWidget {
           space(),
           Center(
             child: Container(
-              width: 400,
-              // color: Colors.grey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Projects(),
-                  space2(),
-                  // Projects(),
-                  // space2(),
-                  // Projects(),
-                  // space2(),
-                  // Projects(),
-                  // space2(),
-                  // Projects(),
-                  // space2(),
-                  // Projects(),
-                  // space2(),
-                  // Projects(),
-                  // space2(),
-                ],
+              child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: allProjectslistData.length,
+                itemBuilder: (context, i) {
+                  if (allProjectslistData != null) {
+                    return Projects(oneData: allProjectslistData[i]);
+                  } else {
+                    return CupertinoActivityIndicator();
+                  }
+                },
               ),
             ),
+            // Container(
+            //   width: 400,
+            //   // color: Colors.grey,
+            //   child: Column(
+            //     mainAxisSize: MainAxisSize.min,
+            //     children: [
+            //       Projects(),
+            //       space2(),
+            //       Projects(),
+            //       space2(),
+            //       Projects(),
+            //       space2(),
+            //       // Projects(),
+            //       // space2(),
+            //       // Projects(),
+            //       // space2(),
+            //       // Projects(),
+            //       // space2(),
+            //       // Projects(),
+            //       // space2(),
+            //     ],
+            //   ),
+            // ),
           ),
         ],
       ),
